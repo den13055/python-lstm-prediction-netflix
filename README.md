@@ -1,79 +1,83 @@
 # Netflix Stock Price Prediction
 
-Приложение для прогнозирования цен акций Netflix (NFLX) с использованием нейронной сети LSTM. Реализовано на Python с веб-интерфейсом на Streamlit.
+An application for predicting Netflix (NFLX) stock prices using an LSTM neural network. Implemented in Python with a web interface powered by Streamlit.
 
-## 📌 Возможности
+## 📌 Features
 
-- Загрузка исторических данных о ценах акций Netflix через Yahoo Finance  
-- Визуализация исторической цены закрытия  
-- Обученная модель LSTM (архитектура из 4 слоёв) для прогнозирования  
-- Прогноз на заданное пользователем количество дней (1–10)  
-- Сравнение предсказанных и реальных значений на тестовом периоде  
-- Оценка точности модели по метрике RMSE  
+- Download historical Netflix stock price data from Yahoo Finance
+- Visualization of historical closing prices
+- Trained LSTM model (4-layer architecture) for forecasting
+- Forecast for a user-specified number of days (1–10)
+- Comparison of predicted and actual values ​​during the test period
+- Evaluation of model accuracy using the RMSE metric
 
-## 📁 Структура проекта
+## 📁 Project Structure
 
-| Файл                   | Описание |
+| File | Description |
 |------------------------|----------|
-| `app.py`               | Streamlit-приложение с пользовательским интерфейсом |
-| `Model_Creation.ipynb` | Jupyter-ноутбук с обучением модели |
-| `Model_50.h5`          | Файл обученной модели (не включён в репозиторий) |
-| `requirements.txt`     | Список зависимостей Python |
+| `app.py` | Streamlit application with user interface |
+| `Model_Creation.ipynb` | Jupyter notebook with model training |
+| `Model_50.h5` | Trained model file (not included in the repository) |
+| `requirements.txt` | List of Python dependencies |
 
-## 🛠️ Используемые технологии
+## 🛠️ Technologies Used
 
 - **Python 3.10+**
-- **TensorFlow / Keras** – построение и загрузка LSTM-модели
-- **Streamlit** – веб-интерфейс
-- **yfinance** – загрузка биржевых данных
-- **Pandas, NumPy** – обработка данных
-- **Scikit-learn** – масштабирование признаков (MinMaxScaler)
-- **Matplotlib** – построение графиков
+- **TensorFlow / Keras** – building and loading the LSTM model
+- **Streamlit** – web interface
+- **yfinance** – loading stock data
+- **Pandas, NumPy** – data processing
+- **Scikit-learn** – feature scaling (MinMaxScaler)
+- **Matplotlib** – plotting
 
-## 🚀 Установка и запуск
+## 🚀 Installation and Run
 
-1. **Клонируйте репозиторий:**
-   ```bash
-   git clone https://github.com/yourusername/netflix-stock-prediction.git
-   cd netflix-stock-prediction
-   ```
+1. **Clone the repository:**
+```bash
+git clone https://github.com/yourusername/netflix-stock-prediction.git
+cd netflix-stock-prediction
+```
 
-2. **Установите зависимости:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+2. **Install dependencies:**
+```bash
+pip install -r requirements.txt
+```
 
-3. **Подготовьте модель:**
-   - Убедитесь, что файл обученной модели `Model_50.h5` находится в корне проекта.
-   - Если его нет, запустите ноутбук `Model_Creation.ipynb` для обучения модели или скачайте предобученную версию.
+3. **Prepare the model:**
+- Make sure the trained model file `Model_50.h5` is in the project root.
+- If it is not there, run the `Model_Creation.ipynb` notebook to train the model or download a pre-trained version.
 
-4. **Запустите приложение:**
-   ```bash
-   streamlit run app.py
-   ```
+4. **Run the application:**
+```bash
+streamlit run app.py
+```
 
-5. Откройте в браузере адрес `http://localhost:8501`.
+5. Open `http://localhost:8501` in your browser.
 
-## 📈 Использование
+## 📈 Usage
 
-- Выберите количество дней для прогноза с помощью слайдера (от 1 до 10).
-- Нажмите кнопку **«Прогнозировать»**.
-- Приложение загрузит актуальные исторические данные, отобразит график цены закрытия, сравнит реальные и предсказанные значения на тестовом участке, покажет RMSE и построит прогноз на выбранный период.
+- Select the number of days for the forecast using the slider (from 1 to 10).
+- Click the **"Forecast"** button.
+- The application will download current historical data, display a closing price chart, compare actual and predicted values ​​in the test section, display the RMSE, and generate a forecast for the selected period.
 
-## 🧠 Обучение модели
+## 🧠 Model Training
 
-- Модель обучена на данных акций Netflix с 2010 года по текущую дату.  
-- Временной шаг (window) — **50 дней**.  
-- **Архитектура LSTM:**  
-  4 слоя LSTM (50, 60, 80, 120 нейронов) с чередующимися Dropout-слоями для регуляризации.  
-- Оптимизатор: Adam, функция потерь: mean_squared_error.  
-- Прогноз на будущие дни строится рекурсивно: предсказание одного дня подставляется обратно в окно для генерации последующих значений.
+- The model was trained on Netflix stock data from 2010 to the current date.
 
-## ⚠️ Примечания
+- Time step (window) — **50 days**.
 
-- Для работы приложения необходимо подключение к интернету (загрузка данных через Yahoo Finance).
-- Данный проект носит учебно-демонстрационный характер и не должен использоваться для реальной торговли без дополнительной валидации.
+- **LSTM architecture:**
+4 LSTM layers (50, 60, 80, 120 neurons) with alternating Dropout layers for regularization.
 
-## 📄 Лицензия
+- Optimizer: Adam, loss function: mean_squared_error.
+
+- Forecasts for future days are built recursively: one day's forecast is inserted back into the window to generate subsequent values.
+
+## ⚠️ Notes
+
+- An internet connection is required for the application to run (data download via Yahoo Finance).
+- This project is for educational and demonstration purposes only and should not be used for real trading without additional validation.
+
+## 📄 License
 
 [MIT](LICENSE)
